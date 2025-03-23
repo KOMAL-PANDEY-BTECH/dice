@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #2c3e50;
+            color: #a3f7bf;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 20px;
+        }
+        .dice {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: black;
+            color: #a3f7bf;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="result">Roll the Dice!</h1>
+    <div class="dice-container">
+        <div>
+            <p>Player 1</p>
+            <div class="dice" id="dice1">🎲</div>
+        </div>
+        <div>
+            <p>Player 2</p>
+            <div class="dice" id="dice2">🎲</div>
+        </div>
+    </div>
+    <button onclick="rollDice()">Click Here</button>
+
+    <script>
+        function rollDice() {
+            let dice1 = Math.floor(Math.random() * 6) + 1;
+            let dice2 = Math.floor(Math.random() * 6) + 1;
+            
+            document.getElementById('dice1').textContent = dice1;
+            document.getElementById('dice2').textContent = dice2;
+            
+            if (dice1 > dice2) {
+                document.getElementById('result').textContent = "Player 1 is winner!";
+            } else if (dice1 < dice2) {
+                document.getElementById('result').textContent = "Player 2 is winner!";
+            } else {
+                document.getElementById('result').textContent = "It's a draw!";
+            }
+        }
+    </script>
+</body>
+</html>
